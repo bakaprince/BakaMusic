@@ -1,0 +1,69 @@
+/* 🌙 BAKA MUSIC - DARK THEME COLOR SYSTEM */
+
+:root {
+    /* PRIMARY COLORS - Dark Theme */
+    --bg-primary: #0f0f14;
+    --bg-secondary: #1a1a22;
+    --bg-tertiary: #25252d;
+    --bg-hover: #2a2a33;
+
+    /* ACCENT COLORS */
+    --accent-purple: #b366ff;
+    --accent-pink: #ff4081;
+    --accent-blue: #4da6ff;
+    --accent-cyan: #00d9ff;
+    --gradient-primary: linear-gradient(135deg, #b366ff 0%, #00d9ff 100%);
+    --gradient-secondary: linear-gradient(135deg, #ff4081 0%, #b366ff 100%);
+
+    /* GLASS MORPHISM */
+    --glass-color: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-backdrop: blur(10px);
+
+    /* TEXT COLORS */
+    --text-primary: #eaeaf0;
+    --text-secondary: #b3b3b8;
+    --text-tertiary: #808086;
+    --text-muted: #4a4a50;
+
+    /* SHADOWS - Soft glassmorphism */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.3);
+    --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.4);
+    --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.5);
+
+    /* GLOW EFFECTS */
+    --glow-purple: 0 0 20px rgba(179, 102, 255, 0.3);
+    --glow-cyan: 0 0 20px rgba(0, 217, 255, 0.3);
+    --glow-pink: 0 0 20px rgba(255, 64, 129, 0.3);
+
+    /* BORDERS */
+    --border-color: rgba(255, 255, 255, 0.1);
+    --border-color-hover: rgba(255, 255, 255, 0.15);
+
+    /* TRANSITIONS */
+    --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-slow: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    /* SPACING */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-2xl: 3rem;
+
+    /* SIZES */
+    --sidebar-width: 260px;
+    --player-height: 90px;
+    --header-height: 80px;
+}
+
+/* 📱 MOBILE DARK THEME */
+@media (max-width: 768px) {
+    :root {
+        --sidebar-width: 0;
+        --player-height: 100px;
+    }
+}

@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎵 Baka Music - Dark Theme Music App</title>
+    <link rel="stylesheet" href="/static/styles/variables.css">
+    <link rel="stylesheet" href="/static/styles/layout.css">
+    <link rel="stylesheet" href="/static/styles/components.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- SIDEBAR NAVIGATION -->
+        <aside id="sidebar" class="sidebar">
+            <!-- Logo -->
+            <div class="sidebar-header">
+                <div class="logo">🎵 Baka Music</div>
+            </div>
+
+            <!-- Navigation -->
+            <nav class="sidebar-nav">
+                <a href="#home" class="nav-link active" data-page="home">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                    </svg>
+                    <span>Home</span>
+                </a>
+                <a href="#search" class="nav-link" data-page="search">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M15.5 1h-8C6.12 1 5 2.12 5 3.5v17C5 21.88 6.12 23 7.5 23h8c1.38 0 2.5-1.12 2.5-2.5v-17C18 2.12 16.88 1 15.5 1zm-4 21c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4.5-4H7V4h9v14z" />
+                    </svg>
+                    <span>Search</span>
+                </a>
+                <a href="#library" class="nav-link" data-page="library">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z" />
+                    </svg>
+                    <span>Library</span>
+                </a>
+                <a href="#playlists" class="nav-link" data-page="playlists">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M15 6H3v2h12V6zm0 4H3v2h12v-2zM3 16h8v-2H3v2zM17 6v8.18c-.31-.11-.65-.18-1-.18-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3V8h3V6h-5z" />
+                    </svg>
+                    <span>Playlists</span>
+                </a>
+                <a href="#liked" class="nav-link" data-page="liked">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                    </svg>
+                    <span>Liked Songs</span>
+                </a>
+            </nav>
+
+            <!-- Profile Section -->
+            <div class="sidebar-footer">
+                <button id="settingsBtn" class="settings-btn" title="Settings">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M19.14 12.94c.04-.3.06-.61.06-.94 0-.32-.02-.64-.07-.94l2.03-1.58c.18-.14.23-.41.12-.62l-1.92-3.32c-.12-.22-.39-.28-.61-.15l-2.39 1.88c-.5-.38-1.03-.7-1.62-.94l-.36-3.03c-.04-.24-.24-.41-.48-.41h-3.84c-.24 0-.43.17-.47.41l-.36 3.03c-.59.24-1.13.57-1.62.94l-2.39-1.88c-.22-.13-.49-.07-.61.15l-1.92 3.32c-.13.21-.08.48.12.62l2.03 1.58c-.05.3-.07.62-.07.94s.02.64.07.94l-2.03 1.58c-.18.14-.23.41-.12.62l1.92 3.32c.12.22.39.28.61.15l2.39-1.88c.5.38 1.03.7 1.62.94l.36 3.03c.05.24.24.41.48.41h3.84c.24 0 .44-.17.47-.41l.36-3.03c.59-.24 1.13-.56 1.62-.94l2.39 1.88c.22.13.49.07.61-.15l1.92-3.32c.12-.22.07-.48-.12-.62l-2.01-1.58zM12 15.6c-1.98 0-3.6-1.62-3.6-3.6s1.62-3.6 3.6-3.6 3.6 1.62 3.6 3.6-1.62 3.6-3.6 3.6z" />
+                    </svg>
+                </button>
+                <div class="profile-info">
+                    <div class="profile-avatar">👤</div>
+                    <div class="profile-name" id="profileName">User</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- MAIN CONTENT AREA -->
+        <div class="main-wrapper">
+            <!-- TOP HEADER -->
+            <header class="top-header">
+                <h1 id="pageTitle">Home</h1>
+            </header>
+
+            <!-- DYNAMIC CONTENT -->
+            <main class="content-area">
+                <!-- Home Page -->
+                <div id="homePage" class="page active">
+                    <section class="content-section">
+                        <h2>Recently Played</h2>
+                        <div id="recentlyPlayedGrid" class="songs-grid"></div>
+                    </section>
+                </div>
+
+                <!-- Search Page -->
+                <div id="searchPage" class="page">
+                    <div class="search-header">
+                        <div class="search-box">
+                            <svg class="search-icon" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M15.5 1h-8C6.12 1 5 2.12 5 3.5v17C5 21.88 6.12 23 7.5 23h8c1.38 0 2.5-1.12 2.5-2.5v-17C18 2.12 16.88 1 15.5 1zm-4 21c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm4.5-4H7V4h9v14z" />
+                            </svg>
+                            <input type="text" id="searchInput" class="search-input"
+                                placeholder="Search songs, artists, albums..." autocomplete="off">
+                            <div id="loadingSpinner" class="loading-spinner hidden"></div>
+                        </div>
+                    </div>
+                    <div id="searchResults" class="songs-grid"></div>
+                    <div id="searchEmpty" class="empty-state">
+                        <div class="empty-icon">🔍</div>
+                        <h2>Search for songs</h2>
+                        <p>Type to find your favorite music</p>
+                    </div>
+                </div>
+
+                <!-- Library Page -->
+                <div id="libraryPage" class="page">
+                    <div class="library-content">
+                        <h2>Your Library</h2>
+                        <p id="libraryEmpty" class="empty-message">No songs in your library yet</p>
+                        <div id="libraryGrid" class="songs-grid"></div>
+                    </div>
+                </div>
+
+                <!-- Playlists Page -->
+                <div id="playlistsPage" class="page">
+                    <div class="playlists-header">
+                        <h2>Your Playlists</h2>
+                        <button id="createPlaylistBtn" class="btn-primary">+ Create Playlist</button>
+                    </div>
+                    <div id="playlistsList" class="playlists-grid"></div>
+                    <div id="playlistsEmpty" class="empty-state">
+                        <div class="empty-icon">📋</div>
+                        <h2>No playlists yet</h2>
+                        <p>Create your first playlist to get started</p>
+                    </div>
+                </div>
+
+                <!-- Liked Songs Page -->
+                <div id="likedPage" class="page">
+                    <div class="liked-header">
+                        <h2>❤️ Liked Songs</h2>
+                        <span id="likedCount" class="liked-count">0 songs</span>
+                    </div>
+                    <div id="likedGrid" class="songs-grid"></div>
+                    <div id="likedEmpty" class="empty-state">
+                        <div class="empty-icon">💔</div>
+                        <h2>No liked songs yet</h2>
+                        <p>Add songs to your collection</p>
+                    </div>
+                </div>
+
+                <!-- Settings Page -->
+                <div id="settingsPage" class="page">
+                    <div class="settings-container">
+                        <h2>Settings</h2>
+                        <div class="settings-group">
+                            <label class="settings-item">
+                                <span>Dark Theme</span>
+                                <input type="checkbox" id="darkThemeToggle" checked disabled>
+                            </label>
+                            <label class="settings-item">
+                                <span>Auto-play Next</span>
+                                <input type="checkbox" id="autoplayToggle">
+                            </label>
+                            <label class="settings-item">
+                                <span>Default Volume</span>
+                                <input type="range" id="defaultVolumeSlider" min="0" max="100" value="70">
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!-- PLAYER BAR -->
+    <div id="playerBar" class="player-bar">
+        <div id="playerEmbed" style="display: none;"></div>
+        <div class="player-wrapper">
+            <!-- Left: Song Info -->
+            <div class="player-left">
+                <img id="playerThumb" src="/static/placeholder.svg" alt="Album" class="player-thumb">
+                <div class="player-text">
+                    <div id="playerTitle" class="player-title">No song playing</div>
+                    <div id="playerArtist" class="player-artist">Unknown</div>
+                </div>
+            </div>
+
+            <!-- Center: Controls -->
+            <div class="player-center">
+                <div class="player-progress">
+                    <span id="currentTime" class="time">0:00</span>
+                    <div id="progressBar" class="progress-bar">
+                        <div id="progressFill" class="progress"></div>
+                    </div>
+                    <span id="totalTime" class="time">0:00</span>
+                </div>
+                <div class="player-buttons">
+                    <button id="prevBtn" class="player-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 6h2v12H6V6zm3.5 6l8.5 6V6z" />
+                        </svg>
+                    </button>
+                    <button id="playPauseBtn" class="player-btn play-btn">
+                        <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                        <svg id="pauseIcon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                            <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
+                        </svg>
+                    </button>
+                    <button id="nextBtn" class="player-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 18h2V6h-2v12zm-11-7l8.5-6v12z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Right: Volume & Actions -->
+            <div class="player-right">
+                <button id="likeBtn" class="player-control" title="Like">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path
+                            d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+                    </svg>
+                </button>
+                <div class="volume-control">
+                    <button id="muteBtn" class="mute-btn">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.26 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+                        </svg>
+                    </button>
+                    <input type="range" id="volumeSlider" class="volume-slider" min="0" max="100" value="70">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODULAR COMPONENTS -->
+    <script src="/static/main.js"></script>
+    <script src="/static/components/player.js"></script>
+    <script src="/static/components/search.js"></script>
+    <script src="/static/components/playlist.js"></script>
+    <script src="/static/components/sidebar.js"></script>
+    <script src="/static/components/profile.js"></script>
+    <script src="/static/components/settings.js"></script>
+</body>
+
+</html>

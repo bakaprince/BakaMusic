@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎵 Baka Music - Premium Music Player</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+    <!-- Main Container -->
+    <div class="main-container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="header-content">
+                <h1 class="app-title">🎵 Baka Music</h1>
+                <p class="app-subtitle">Your Premium Music Companion</p>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="search-container">
+                <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+                <input type="text" id="searchInput" class="search-input" placeholder="Search songs, artists, albums..."
+                    autocomplete="off">
+                <div id="loadingSpinner" class="loading-spinner hidden"></div>
+            </div>
+        </header>
+
+        <!-- Results Section -->
+        <div class="results-section">
+            <!-- Empty State -->
+            <div id="emptyState" class="empty-state">
+                <div class="empty-icon">🎧</div>
+                <h2>Start Your Music Journey</h2>
+                <p>Search for your favorite songs, artists, or albums</p>
+            </div>
+
+            <!-- Results Grid -->
+            <div id="results" class="results-grid"></div>
+
+            <!-- Error State -->
+            <div id="errorState" class="error-state hidden">
+                <div class="error-icon">⚠️</div>
+                <h2>Oops! Something went wrong</h2>
+                <p id="errorMessage">Please try again later</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Music Player -->
+    <div id="playerBar" class="player-bar">
+        <!-- Hidden YouTube Iframe -->
+        <div id="playerEmbed" style="display: none;"></div>
+
+        <!-- Player Content -->
+        <div class="player-content">
+            <!-- Song Info (Left) -->
+            <div class="player-song-info">
+                <img id="playerThumb" src="/static/placeholder.svg" alt="Album Art" class="player-thumb">
+                <div class="player-text-info">
+                    <div id="playerTitle" class="player-title">No song playing</div>
+                    <div id="playerArtist" class="player-artist">Unknown Artist</div>
+                </div>
+            </div>
+
+            <!-- Player Controls (Center) -->
+            <div class="player-controls">
+                <!-- Progress Bar -->
+                <div class="progress-container">
+                    <span id="currentTime" class="time-display">0:00</span>
+                    <div id="progressBar" class="progress-bar">
+                        <div id="progressFill" class="progress-fill"></div>
+                        <div id="progressHandle" class="progress-handle"></div>
+                    </div>
+                    <span id="totalTime" class="time-display">0:00</span>
+                </div>
+
+                <!-- Control Buttons -->
+                <div class="button-group">
+                    <button id="prevBtn" class="control-btn" title="Previous">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M6 6h2v12H6V6zm3.5 6l8.5 6V6z" />
+                        </svg>
+                    </button>
+                    <button id="playPauseBtn" class="control-btn play-pause" title="Play">
+                        <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M8 5v14l11-7z" />
+                        </svg>
+                        <svg id="pauseIcon" viewBox="0 0 24 24" fill="currentColor" style="display: none;">
+                            <path d="M6 4h4v16H6V4zm8 0h4v16h-4V4z" />
+                        </svg>
+                    </button>
+                    <button id="nextBtn" class="control-btn" title="Next">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M16 18h2V6h-2v12zm-11-7l8.5-6v12z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Volume & Settings (Right) -->
+            <div class="player-settings">
+                <div class="volume-group">
+                    <button id="muteBtn" class="setting-btn" title="Mute">
+                        <svg id="volumeIcon" viewBox="0 0 24 24" fill="currentColor">
+                            <path
+                                d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.26 2.5-4.02zM14 3.23v2.06c2.89.86 5 3.54 5 6.71s-2.11 5.85-5 6.71v2.06c4.01-.91 7-4.49 7-8.77s-2.99-7.86-7-8.77z" />
+                        </svg>
+                    </button>
+                    <div class="volume-slider-wrapper">
+                        <input id="volumeSlider" type="range" min="0" max="100" value="70" class="volume-slider"
+                            title="Volume">
+                    </div>
+                </div>
+
+                <button id="autoplayBtn" class="setting-btn" title="Auto-play next" data-autoplay="false">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/static/app.js"></script>
+</body>
+
+</html>
